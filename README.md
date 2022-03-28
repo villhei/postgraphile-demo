@@ -9,4 +9,5 @@
 ## Install
 
 1. Clone the repo
+2. Init the db by running `scripts/initdb.sh`
 2. Run `yarn`
