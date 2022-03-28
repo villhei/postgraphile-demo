@@ -1,0 +1,12 @@
+fragment FilmListEntry on Film {
+  filmId
+  title
+}
+
+query Films {
+  films(first: 10) {
+    nodes {
+      ...FilmListEntry
+    }
+  }
+}
