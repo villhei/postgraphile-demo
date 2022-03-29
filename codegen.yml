@@ -11,13 +11,9 @@ generates:
       - typescript-operations
       - typescript-react-apollo
     config:
-      withHOC: false
-      withComponent: false
       withMutationFn: false
   src/:
     config:
-      withHOC: false
-      withComponent: false
       withMutationFn: false
       inlineFragmentTypes: "combine"
     plugins:
