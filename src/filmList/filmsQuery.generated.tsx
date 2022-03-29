@@ -3,10 +3,26 @@ import * as Types from "../graphql/types.generated"
 import { gql } from "@apollo/client"
 import * as Apollo from "@apollo/client"
 const defaultOptions = {} as const
-export type FilmListEntryFragment = {
+export type ActorNameFragment = {
+  __typename?: "Actor"
+  actorId: number
+  firstName: string
+  lastName: string
+}
+
+export type FilmListDescriptionFragment = {
   __typename?: "Film"
-  filmId: number
   title: string
+  filmId: number
+  length?: number | null
+  description?: string | null
+  filmActors: {
+    __typename?: "FilmActorsConnection"
+    nodes: Array<{
+      __typename?: "FilmActor"
+      actor?: ({ __typename?: "Actor" } & ActorNameFragment) | null
+    }>
+  }
 }
 
 export type FilmsQueryVariables = Types.Exact<{ [key: string]: never }>
@@ -15,25 +31,42 @@ export type FilmsQuery = {
   __typename?: "Query"
   films?: {
     __typename?: "FilmsConnection"
-    nodes: Array<{ __typename?: "Film"; filmId: number; title: string } | null>
+    nodes: Array<{ __typename?: "Film" } & FilmListDescriptionFragment>
   } | null
 }
 
-export const FilmListEntryFragmentDoc = gql`
-  fragment FilmListEntry on Film {
-    filmId
-    title
+export const ActorNameFragmentDoc = gql`
+  fragment ActorName on Actor {
+    actorId
+    firstName
+    lastName
   }
 `
-export const FilmsDocument = gql`
-  query Films {
-    films(first: 10) {
+export const FilmListDescriptionFragmentDoc = gql`
+  fragment FilmListDescription on Film {
+    title
+    filmId
+    length
+    description
+    filmActors(first: 10) {
       nodes {
-        ...FilmListEntry
+        actor {
+          ...ActorName
+        }
       }
     }
   }
-  ${FilmListEntryFragmentDoc}
+  ${ActorNameFragmentDoc}
+`
+export const FilmsDocument = gql`
+  query Films {
+    films(first: 10, orderBy: LENGTH_DESC) {
+      nodes {
+        ...FilmListDescription
+      }
+    }
+  }
+  ${FilmListDescriptionFragmentDoc}
 `
 
 /**

@@ -1,5 +1,5 @@
 import React from "react"
-import { useFilmsQuery } from "../graphql/types.generated"
+import { useFilmsQuery } from "./filmsQuery.generated"
 
 export default function Main() {
   const response = useFilmsQuery()

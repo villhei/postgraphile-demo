@@ -8422,6 +8422,7 @@ __metadata:
     "@graphile-contrib/pg-simplify-inflector": ^6.1.0
     "@graphql-codegen/cli": ^2.6.2
     "@graphql-codegen/near-operation-file-preset": ^2.2.9
+    "@graphql-codegen/schema-ast": ^2.4.1
     "@graphql-codegen/typescript": ^2.4.8
     "@graphql-codegen/typescript-operations": ^2.3.5
     "@graphql-codegen/typescript-react-apollo": ^3.2.11

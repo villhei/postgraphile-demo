@@ -2,7 +2,9 @@ overwrite: true
 schema: "./src/graphql/schema.graphql"
 documents: "src/**/*.graphql"
 generates:
-  # Creates the TypeScript types from the schema and any .graphql file
+  ./src/graphql/schema.graphql:
+    plugins:
+      - schema-ast
   src/graphql/types.generated.ts:
     plugins:
       - typescript
@@ -17,15 +19,17 @@ generates:
       withHOC: false
       withComponent: false
       withMutationFn: false
+      inlineFragmentTypes: "combine"
     plugins:
-      - "typescript-operations"
-      - "typescript-react-apollo"
+      - typescript-operations
+      - typescript-react-apollo
     preset: near-operation-file
     presetConfig:
       baseTypesPath: graphql/types.generated.ts
       extension: .generated.tsx
 config:
   scalars:
+    Date: "string"
     DateTime: "string"
 hooks:
   afterOneFileWrite:

@@ -17,10 +17,11 @@ app.use(
     {
       watchPg: true,
       graphiql: true,
-      dynamicJson: true,
       enhanceGraphiql: true,
       exportGqlSchemaPath: "src/graphql/schema.graphql",
+      setofFunctionsContainNulls: false,
       pgDefaultRole: "default_role",
+      simpleCollections: 'omit',
       appendPlugins: [pgSimplifyInflector],
     }
   )

@@ -1,12 +1,27 @@
-fragment FilmListEntry on Film {
-  filmId
+fragment ActorName on Actor {
+  actorId
+  firstName
+  lastName
+}
+
+fragment FilmListDescription on Film {
   title
+  filmId
+  length
+  description
+  filmActors(first: 10) {
+    nodes {
+      actor {
+        ...ActorName
+      }
+    }
+  }
 }
 
 query Films {
-  films(first: 10) {
+  films(first: 10, orderBy: LENGTH_DESC) {
     nodes {
-      ...FilmListEntry
+      ...FilmListDescription
     }
   }
 }

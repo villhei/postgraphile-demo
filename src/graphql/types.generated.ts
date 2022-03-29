@@ -24,7 +24,7 @@ export type Scalars = {
   /** A location in a connection that can be used for resuming pagination. */
   Cursor: any
   /** The day, does not include a time. */
-  Date: any
+  Date: string
   /**
    * A point in time as described by the [ISO
    * 8601](https://en.wikipedia.org/wiki/ISO_8601) standard. May or may not include a timezone.
@@ -96,7 +96,7 @@ export type ActorInfosConnection = {
   /** A list of edges which contains the `ActorInfo` and cursor to aid in pagination. */
   edges: Array<ActorInfosEdge>
   /** A list of `ActorInfo` objects. */
-  nodes: Array<Maybe<ActorInfo>>
+  nodes: Array<ActorInfo>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
   /** The count of *all* `ActorInfo` you could get from the connection. */
@@ -109,7 +109,7 @@ export type ActorInfosEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>
   /** The `ActorInfo` at the end of the edge. */
-  node?: Maybe<ActorInfo>
+  node: ActorInfo
 }
 
 /** Methods to use when ordering `ActorInfo`. */
@@ -147,7 +147,7 @@ export type ActorsConnection = {
   /** A list of edges which contains the `Actor` and cursor to aid in pagination. */
   edges: Array<ActorsEdge>
   /** A list of `Actor` objects. */
-  nodes: Array<Maybe<Actor>>
+  nodes: Array<Actor>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
   /** The count of *all* `Actor` you could get from the connection. */
@@ -160,7 +160,7 @@ export type ActorsEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>
   /** The `Actor` at the end of the edge. */
-  node?: Maybe<Actor>
+  node: Actor
 }
 
 /** Methods to use when ordering `Actor`. */
@@ -280,7 +280,7 @@ export type AddressesConnection = {
   /** A list of edges which contains the `Address` and cursor to aid in pagination. */
   edges: Array<AddressesEdge>
   /** A list of `Address` objects. */
-  nodes: Array<Maybe<Address>>
+  nodes: Array<Address>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
   /** The count of *all* `Address` you could get from the connection. */
@@ -293,7 +293,7 @@ export type AddressesEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>
   /** The `Address` at the end of the edge. */
-  node?: Maybe<Address>
+  node: Address
 }
 
 /** Methods to use when ordering `Address`. */
@@ -325,7 +325,7 @@ export type CategoriesConnection = {
   /** A list of edges which contains the `Category` and cursor to aid in pagination. */
   edges: Array<CategoriesEdge>
   /** A list of `Category` objects. */
-  nodes: Array<Maybe<Category>>
+  nodes: Array<Category>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
   /** The count of *all* `Category` you could get from the connection. */
@@ -338,7 +338,7 @@ export type CategoriesEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>
   /** The `Category` at the end of the edge. */
-  node?: Maybe<Category>
+  node: Category
 }
 
 /** Methods to use when ordering `Category`. */
@@ -408,7 +408,7 @@ export type CitiesConnection = {
   /** A list of edges which contains the `City` and cursor to aid in pagination. */
   edges: Array<CitiesEdge>
   /** A list of `City` objects. */
-  nodes: Array<Maybe<City>>
+  nodes: Array<City>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
   /** The count of *all* `City` you could get from the connection. */
@@ -421,7 +421,7 @@ export type CitiesEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>
   /** The `City` at the end of the edge. */
-  node?: Maybe<City>
+  node: City
 }
 
 /** Methods to use when ordering `City`. */
@@ -497,7 +497,7 @@ export type CountriesConnection = {
   /** A list of edges which contains the `Country` and cursor to aid in pagination. */
   edges: Array<CountriesEdge>
   /** A list of `Country` objects. */
-  nodes: Array<Maybe<Country>>
+  nodes: Array<Country>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
   /** The count of *all* `Country` you could get from the connection. */
@@ -510,7 +510,7 @@ export type CountriesEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>
   /** The `Country` at the end of the edge. */
-  node?: Maybe<Country>
+  node: Country
 }
 
 /** Methods to use when ordering `Country`. */
@@ -1214,7 +1214,7 @@ export type CustomerListsConnection = {
   /** A list of edges which contains the `CustomerList` and cursor to aid in pagination. */
   edges: Array<CustomerListsEdge>
   /** A list of `CustomerList` objects. */
-  nodes: Array<Maybe<CustomerList>>
+  nodes: Array<CustomerList>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
   /** The count of *all* `CustomerList` you could get from the connection. */
@@ -1227,7 +1227,7 @@ export type CustomerListsEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>
   /** The `CustomerList` at the end of the edge. */
-  node?: Maybe<CustomerList>
+  node: CustomerList
 }
 
 /** Methods to use when ordering `CustomerList`. */
@@ -1273,7 +1273,7 @@ export type CustomersConnection = {
   /** A list of edges which contains the `Customer` and cursor to aid in pagination. */
   edges: Array<CustomersEdge>
   /** A list of `Customer` objects. */
-  nodes: Array<Maybe<Customer>>
+  nodes: Array<Customer>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
   /** The count of *all* `Customer` you could get from the connection. */
@@ -1286,7 +1286,7 @@ export type CustomersEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>
   /** The `Customer` at the end of the edge. */
-  node?: Maybe<Customer>
+  node: Customer
 }
 
 /** Methods to use when ordering `Customer`. */
@@ -2102,7 +2102,7 @@ export type FilmActorsConnection = {
   /** A list of edges which contains the `FilmActor` and cursor to aid in pagination. */
   edges: Array<FilmActorsEdge>
   /** A list of `FilmActor` objects. */
-  nodes: Array<Maybe<FilmActor>>
+  nodes: Array<FilmActor>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
   /** The count of *all* `FilmActor` you could get from the connection. */
@@ -2115,7 +2115,7 @@ export type FilmActorsEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>
   /** The `FilmActor` at the end of the edge. */
-  node?: Maybe<FilmActor>
+  node: FilmActor
 }
 
 /** Methods to use when ordering `FilmActor`. */
@@ -2137,7 +2137,7 @@ export type FilmCategoriesConnection = {
   /** A list of edges which contains the `FilmCategory` and cursor to aid in pagination. */
   edges: Array<FilmCategoriesEdge>
   /** A list of `FilmCategory` objects. */
-  nodes: Array<Maybe<FilmCategory>>
+  nodes: Array<FilmCategory>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
   /** The count of *all* `FilmCategory` you could get from the connection. */
@@ -2150,7 +2150,7 @@ export type FilmCategoriesEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>
   /** The `FilmCategory` at the end of the edge. */
-  node?: Maybe<FilmCategory>
+  node: FilmCategory
 }
 
 /** Methods to use when ordering `FilmCategory`. */
@@ -2318,7 +2318,7 @@ export type FilmListsConnection = {
   /** A list of edges which contains the `FilmList` and cursor to aid in pagination. */
   edges: Array<FilmListsEdge>
   /** A list of `FilmList` objects. */
-  nodes: Array<Maybe<FilmList>>
+  nodes: Array<FilmList>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
   /** The count of *all* `FilmList` you could get from the connection. */
@@ -2331,7 +2331,7 @@ export type FilmListsEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>
   /** The `FilmList` at the end of the edge. */
-  node?: Maybe<FilmList>
+  node: FilmList
 }
 
 /** Methods to use when ordering `FilmList`. */
@@ -2402,7 +2402,7 @@ export type FilmsConnection = {
   /** A list of edges which contains the `Film` and cursor to aid in pagination. */
   edges: Array<FilmsEdge>
   /** A list of `Film` objects. */
-  nodes: Array<Maybe<Film>>
+  nodes: Array<Film>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
   /** The count of *all* `Film` you could get from the connection. */
@@ -2415,7 +2415,7 @@ export type FilmsEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>
   /** The `Film` at the end of the edge. */
-  node?: Maybe<Film>
+  node: Film
 }
 
 /** Methods to use when ordering `Film`. */
@@ -2481,7 +2481,7 @@ export type InventoriesConnection = {
   /** A list of edges which contains the `Inventory` and cursor to aid in pagination. */
   edges: Array<InventoriesEdge>
   /** A list of `Inventory` objects. */
-  nodes: Array<Maybe<Inventory>>
+  nodes: Array<Inventory>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
   /** The count of *all* `Inventory` you could get from the connection. */
@@ -2494,7 +2494,7 @@ export type InventoriesEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>
   /** The `Inventory` at the end of the edge. */
-  node?: Maybe<Inventory>
+  node: Inventory
 }
 
 /** Methods to use when ordering `Inventory`. */
@@ -2667,7 +2667,7 @@ export type LanguagesConnection = {
   /** A list of edges which contains the `Language` and cursor to aid in pagination. */
   edges: Array<LanguagesEdge>
   /** A list of `Language` objects. */
-  nodes: Array<Maybe<Language>>
+  nodes: Array<Language>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
   /** The count of *all* `Language` you could get from the connection. */
@@ -2680,7 +2680,7 @@ export type LanguagesEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>
   /** The `Language` at the end of the edge. */
-  node?: Maybe<Language>
+  node: Language
 }
 
 /** Methods to use when ordering `Language`. */
@@ -3311,7 +3311,7 @@ export type NicerButSlowerFilmListsConnection = {
   /** A list of edges which contains the `NicerButSlowerFilmList` and cursor to aid in pagination. */
   edges: Array<NicerButSlowerFilmListsEdge>
   /** A list of `NicerButSlowerFilmList` objects. */
-  nodes: Array<Maybe<NicerButSlowerFilmList>>
+  nodes: Array<NicerButSlowerFilmList>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
   /** The count of *all* `NicerButSlowerFilmList` you could get from the connection. */
@@ -3324,7 +3324,7 @@ export type NicerButSlowerFilmListsEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>
   /** The `NicerButSlowerFilmList` at the end of the edge. */
-  node?: Maybe<NicerButSlowerFilmList>
+  node: NicerButSlowerFilmList
 }
 
 /** Methods to use when ordering `NicerButSlowerFilmList`. */
@@ -3427,7 +3427,7 @@ export type PaymentsConnection = {
   /** A list of edges which contains the `Payment` and cursor to aid in pagination. */
   edges: Array<PaymentsEdge>
   /** A list of `Payment` objects. */
-  nodes: Array<Maybe<Payment>>
+  nodes: Array<Payment>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
   /** The count of *all* `Payment` you could get from the connection. */
@@ -3440,7 +3440,7 @@ export type PaymentsEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>
   /** The `Payment` at the end of the edge. */
-  node?: Maybe<Payment>
+  node: Payment
 }
 
 /** Methods to use when ordering `Payment`. */
@@ -4054,7 +4054,7 @@ export type RentalsConnection = {
   /** A list of edges which contains the `Rental` and cursor to aid in pagination. */
   edges: Array<RentalsEdge>
   /** A list of `Rental` objects. */
-  nodes: Array<Maybe<Rental>>
+  nodes: Array<Rental>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
   /** The count of *all* `Rental` you could get from the connection. */
@@ -4067,7 +4067,7 @@ export type RentalsEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>
   /** The `Rental` at the end of the edge. */
-  node?: Maybe<Rental>
+  node: Rental
 }
 
 /** Methods to use when ordering `Rental`. */
@@ -4110,7 +4110,7 @@ export type RewardsReportPayload = {
    * unchanged and unused. May be used by a client to track mutations.
    */
   clientMutationId?: Maybe<Scalars["String"]>
-  customers?: Maybe<Array<Maybe<Customer>>>
+  customers?: Maybe<Array<Customer>>
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>
 }
@@ -4121,7 +4121,7 @@ export type SalesByFilmCategoriesConnection = {
   /** A list of edges which contains the `SalesByFilmCategory` and cursor to aid in pagination. */
   edges: Array<SalesByFilmCategoriesEdge>
   /** A list of `SalesByFilmCategory` objects. */
-  nodes: Array<Maybe<SalesByFilmCategory>>
+  nodes: Array<SalesByFilmCategory>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
   /** The count of *all* `SalesByFilmCategory` you could get from the connection. */
@@ -4134,7 +4134,7 @@ export type SalesByFilmCategoriesEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>
   /** The `SalesByFilmCategory` at the end of the edge. */
-  node?: Maybe<SalesByFilmCategory>
+  node: SalesByFilmCategory
 }
 
 /** Methods to use when ordering `SalesByFilmCategory`. */
@@ -4189,7 +4189,7 @@ export type SalesByStoresConnection = {
   /** A list of edges which contains the `SalesByStore` and cursor to aid in pagination. */
   edges: Array<SalesByStoresEdge>
   /** A list of `SalesByStore` objects. */
-  nodes: Array<Maybe<SalesByStore>>
+  nodes: Array<SalesByStore>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
   /** The count of *all* `SalesByStore` you could get from the connection. */
@@ -4202,7 +4202,7 @@ export type SalesByStoresEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>
   /** The `SalesByStore` at the end of the edge. */
-  node?: Maybe<SalesByStore>
+  node: SalesByStore
 }
 
 /** Methods to use when ordering `SalesByStore`. */
@@ -4303,7 +4303,7 @@ export type StaffConnection = {
   /** A list of edges which contains the `Staff` and cursor to aid in pagination. */
   edges: Array<StaffEdge>
   /** A list of `Staff` objects. */
-  nodes: Array<Maybe<Staff>>
+  nodes: Array<Staff>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
   /** The count of *all* `Staff` you could get from the connection. */
@@ -4316,7 +4316,7 @@ export type StaffEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>
   /** The `Staff` at the end of the edge. */
-  node?: Maybe<Staff>
+  node: Staff
 }
 
 /** An input for mutations affecting `Staff` */
@@ -4375,7 +4375,7 @@ export type StaffListsConnection = {
   /** A list of edges which contains the `StaffList` and cursor to aid in pagination. */
   edges: Array<StaffListsEdge>
   /** A list of `StaffList` objects. */
-  nodes: Array<Maybe<StaffList>>
+  nodes: Array<StaffList>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
   /** The count of *all* `StaffList` you could get from the connection. */
@@ -4388,7 +4388,7 @@ export type StaffListsEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>
   /** The `StaffList` at the end of the edge. */
-  node?: Maybe<StaffList>
+  node: StaffList
 }
 
 /** Methods to use when ordering `StaffList`. */
@@ -4504,7 +4504,7 @@ export type StoresConnection = {
   /** A list of edges which contains the `Store` and cursor to aid in pagination. */
   edges: Array<StoresEdge>
   /** A list of `Store` objects. */
-  nodes: Array<Maybe<Store>>
+  nodes: Array<Store>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
   /** The count of *all* `Store` you could get from the connection. */
@@ -4517,7 +4517,7 @@ export type StoresEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>
   /** The `Store` at the end of the edge. */
-  node?: Maybe<Store>
+  node: Store
 }
 
 /** Methods to use when ordering `Store`. */
@@ -5263,10 +5263,31 @@ export type UpdateStorePayloadStoreEdgeArgs = {
   orderBy?: InputMaybe<Array<StoresOrderBy>>
 }
 
-export type FilmListEntryFragment = {
+export type ActorNameFragment = {
+  __typename?: "Actor"
+  actorId: number
+  firstName: string
+  lastName: string
+}
+
+export type FilmListDescriptionFragment = {
   __typename?: "Film"
-  filmId: number
   title: string
+  filmId: number
+  length?: number | null
+  description?: string | null
+  filmActors: {
+    __typename?: "FilmActorsConnection"
+    nodes: Array<{
+      __typename?: "FilmActor"
+      actor?: {
+        __typename?: "Actor"
+        actorId: number
+        firstName: string
+        lastName: string
+      } | null
+    }>
+  }
 }
 
 export type FilmsQueryVariables = Exact<{ [key: string]: never }>
@@ -5275,25 +5296,60 @@ export type FilmsQuery = {
   __typename?: "Query"
   films?: {
     __typename?: "FilmsConnection"
-    nodes: Array<{ __typename?: "Film"; filmId: number; title: string } | null>
+    nodes: Array<{
+      __typename?: "Film"
+      title: string
+      filmId: number
+      length?: number | null
+      description?: string | null
+      filmActors: {
+        __typename?: "FilmActorsConnection"
+        nodes: Array<{
+          __typename?: "FilmActor"
+          actor?: {
+            __typename?: "Actor"
+            actorId: number
+            firstName: string
+            lastName: string
+          } | null
+        }>
+      }
+    }>
   } | null
 }
 
-export const FilmListEntryFragmentDoc = gql`
-  fragment FilmListEntry on Film {
-    filmId
-    title
+export const ActorNameFragmentDoc = gql`
+  fragment ActorName on Actor {
+    actorId
+    firstName
+    lastName
   }
 `
-export const FilmsDocument = gql`
-  query Films {
-    films(first: 10) {
+export const FilmListDescriptionFragmentDoc = gql`
+  fragment FilmListDescription on Film {
+    title
+    filmId
+    length
+    description
+    filmActors(first: 10) {
       nodes {
-        ...FilmListEntry
+        actor {
+          ...ActorName
+        }
       }
     }
   }
-  ${FilmListEntryFragmentDoc}
+  ${ActorNameFragmentDoc}
+`
+export const FilmsDocument = gql`
+  query Films {
+    films(first: 10, orderBy: LENGTH_DESC) {
+      nodes {
+        ...FilmListDescription
+      }
+    }
+  }
+  ${FilmListDescriptionFragmentDoc}
 `
 
 /**
