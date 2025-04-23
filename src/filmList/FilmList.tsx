@@ -1,10 +1,9 @@
-import React from "react"
-import { useFilmsQuery } from "./filmsQuery.generated"
+import { useFilmsQuery } from "./filmsQuery.generated";
 
 export default function Main() {
-  const response = useFilmsQuery()
+  const response = useFilmsQuery();
 
-  const films = response.data?.films?.nodes ?? []
+  const films = response.data?.films?.nodes ?? [];
 
-  return <pre>{JSON.stringify(films, null, 2)}</pre>
+  return <pre>{JSON.stringify(films, null, 2)}</pre>;
 }

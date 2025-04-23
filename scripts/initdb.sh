@@ -1,3 +1,4 @@
 #!/bin/bash
-pg_restore --dbname=dvdrental --verbose scripts/dvdrental/
-psql -U postgres dvdrental < scripts/role.sql
+set -e
+pg_restore -h localhost -U postgres --dbname=dvdrental --verbose scripts/dvdrental/
+psql -h localhost -d dvdrental -U postgres < scripts/role.sql

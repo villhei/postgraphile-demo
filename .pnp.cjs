@@ -36,6 +36,7 @@ const RAW_RUNTIME_STATE =
           ["@graphql-codegen/typescript-operations", "virtual:92708e04171e065521cb5b2f050d49c8ab5d50a872a67dcea50d5366a631801a13d0396655a2f049755236c09a043d63067da9e4de64467c439a71a8769d241f#npm:4.4.1"],\
           ["@graphql-codegen/typescript-react-apollo", "virtual:92708e04171e065521cb5b2f050d49c8ab5d50a872a67dcea50d5366a631801a13d0396655a2f049755236c09a043d63067da9e4de64467c439a71a8769d241f#npm:4.3.2"],\
           ["@parcel/core", "npm:2.13.3"],\
+          ["@parcel/watcher", "npm:2.5.1"],\
           ["@types/cors", "npm:2.8.17"],\
           ["@types/express", "npm:5.0.0"],\
           ["@types/jest", "npm:27.5.2"],\
@@ -1768,7 +1769,7 @@ const RAW_RUNTIME_STATE =
           ["@graphql-tools/prisma-loader", "virtual:f6ba87a7cc53540ef4d159b7313dbe69c7f1c59de24a328d7e4d207272f96801ac7f6c3fcc780802e2688300afa16bc1286ffb94ef7b6251766f38b2904ecd6c#npm:8.0.17"],\
           ["@graphql-tools/url-loader", "virtual:f6ba87a7cc53540ef4d159b7313dbe69c7f1c59de24a328d7e4d207272f96801ac7f6c3fcc780802e2688300afa16bc1286ffb94ef7b6251766f38b2904ecd6c#npm:8.0.24"],\
           ["@graphql-tools/utils", "virtual:f6ba87a7cc53540ef4d159b7313dbe69c7f1c59de24a328d7e4d207272f96801ac7f6c3fcc780802e2688300afa16bc1286ffb94ef7b6251766f38b2904ecd6c#npm:10.7.2"],\
-          ["@parcel/watcher", null],\
+          ["@parcel/watcher", "npm:2.5.1"],\
           ["@types/graphql", null],\
           ["@types/parcel__watcher", null],\
           ["@whatwg-node/fetch", "npm:0.10.3"],\
@@ -10326,6 +10327,7 @@ const RAW_RUNTIME_STATE =
           ["@graphql-codegen/typescript-operations", "virtual:92708e04171e065521cb5b2f050d49c8ab5d50a872a67dcea50d5366a631801a13d0396655a2f049755236c09a043d63067da9e4de64467c439a71a8769d241f#npm:4.4.1"],\
           ["@graphql-codegen/typescript-react-apollo", "virtual:92708e04171e065521cb5b2f050d49c8ab5d50a872a67dcea50d5366a631801a13d0396655a2f049755236c09a043d63067da9e4de64467c439a71a8769d241f#npm:4.3.2"],\
           ["@parcel/core", "npm:2.13.3"],\
+          ["@parcel/watcher", "npm:2.5.1"],\
           ["@types/cors", "npm:2.8.17"],\
           ["@types/express", "npm:5.0.0"],\
           ["@types/jest", "npm:27.5.2"],\

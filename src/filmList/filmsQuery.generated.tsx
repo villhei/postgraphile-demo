@@ -1,39 +1,39 @@
-import * as Types from "../graphql/types.generated"
+import * as Types from "../graphql/types.generated";
 
-import { gql } from "@apollo/client"
-import * as Apollo from "@apollo/client"
-const defaultOptions = {} as const
+import { gql } from "@apollo/client";
+import * as Apollo from "@apollo/client";
+const defaultOptions = {} as const;
 export type ActorNameFragment = {
-  __typename?: "Actor"
-  actorId: number
-  firstName: string
-  lastName: string
-}
+  __typename?: "Actor";
+  actorId: number;
+  firstName: string;
+  lastName: string;
+};
 
 export type FilmListDescriptionFragment = {
-  __typename?: "Film"
-  title: string
-  filmId: number
-  length?: number | null
-  description?: string | null
+  __typename?: "Film";
+  title: string;
+  filmId: number;
+  length?: number | null;
+  description?: string | null;
   filmActors: {
-    __typename?: "FilmActorsConnection"
+    __typename?: "FilmActorsConnection";
     nodes: Array<{
-      __typename?: "FilmActor"
-      actor?: ({ __typename?: "Actor" } & ActorNameFragment) | null
-    }>
-  }
-}
+      __typename?: "FilmActor";
+      actor?: ({ __typename?: "Actor" } & ActorNameFragment) | null;
+    }>;
+  };
+};
 
-export type FilmsQueryVariables = Types.Exact<{ [key: string]: never }>
+export type FilmsQueryVariables = Types.Exact<{ [key: string]: never }>;
 
 export type FilmsQuery = {
-  __typename?: "Query"
+  __typename?: "Query";
   films?: {
-    __typename?: "FilmsConnection"
-    nodes: Array<{ __typename?: "Film" } & FilmListDescriptionFragment>
-  } | null
-}
+    __typename?: "FilmsConnection";
+    nodes: Array<{ __typename?: "Film" } & FilmListDescriptionFragment>;
+  } | null;
+};
 
 export const ActorNameFragmentDoc = gql`
   fragment ActorName on Actor {
@@ -41,7 +41,7 @@ export const ActorNameFragmentDoc = gql`
     firstName
     lastName
   }
-`
+`;
 export const FilmListDescriptionFragmentDoc = gql`
   fragment FilmListDescription on Film {
     title
@@ -57,7 +57,7 @@ export const FilmListDescriptionFragmentDoc = gql`
     }
   }
   ${ActorNameFragmentDoc}
-`
+`;
 export const FilmsDocument = gql`
   query Films {
     films(first: 10, orderBy: LENGTH_DESC) {
@@ -67,7 +67,7 @@ export const FilmsDocument = gql`
     }
   }
   ${FilmListDescriptionFragmentDoc}
-`
+`;
 
 /**
  * __useFilmsQuery__
@@ -85,26 +85,43 @@ export const FilmsDocument = gql`
  * });
  */
 export function useFilmsQuery(
-  baseOptions?: Apollo.QueryHookOptions<FilmsQuery, FilmsQueryVariables>
+  baseOptions?: Apollo.QueryHookOptions<FilmsQuery, FilmsQueryVariables>,
 ) {
-  const options = { ...defaultOptions, ...baseOptions }
+  const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useQuery<FilmsQuery, FilmsQueryVariables>(
     FilmsDocument,
-    options
-  )
+    options,
+  );
 }
 export function useFilmsLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<FilmsQuery, FilmsQueryVariables>
+  baseOptions?: Apollo.LazyQueryHookOptions<FilmsQuery, FilmsQueryVariables>,
 ) {
-  const options = { ...defaultOptions, ...baseOptions }
+  const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useLazyQuery<FilmsQuery, FilmsQueryVariables>(
     FilmsDocument,
-    options
-  )
+    options,
+  );
 }
-export type FilmsQueryHookResult = ReturnType<typeof useFilmsQuery>
-export type FilmsLazyQueryHookResult = ReturnType<typeof useFilmsLazyQuery>
+export function useFilmsSuspenseQuery(
+  baseOptions?:
+    | Apollo.SkipToken
+    | Apollo.SuspenseQueryHookOptions<FilmsQuery, FilmsQueryVariables>,
+) {
+  const options =
+    baseOptions === Apollo.skipToken
+      ? baseOptions
+      : { ...defaultOptions, ...baseOptions };
+  return Apollo.useSuspenseQuery<FilmsQuery, FilmsQueryVariables>(
+    FilmsDocument,
+    options,
+  );
+}
+export type FilmsQueryHookResult = ReturnType<typeof useFilmsQuery>;
+export type FilmsLazyQueryHookResult = ReturnType<typeof useFilmsLazyQuery>;
+export type FilmsSuspenseQueryHookResult = ReturnType<
+  typeof useFilmsSuspenseQuery
+>;
 export type FilmsQueryResult = Apollo.QueryResult<
   FilmsQuery,
   FilmsQueryVariables
->
+>;

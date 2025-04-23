@@ -12,7 +12,7 @@ app.use(cors())
 app.use(
   postgraphile(
     process.env.DATABASE_URL ||
-    "postgres://postgres@localhost:5432/dvdrental",
+    "postgres://dvd:rental@localhost:5432/dvdrental",
     "public",
     {
       watchPg: true,
@@ -21,6 +21,7 @@ app.use(
       exportGqlSchemaPath: "src/graphql/schema.graphql",
       setofFunctionsContainNulls: false,
       pgDefaultRole: "default_role",
+      ownerConnectionString: 'postgres://postgres@localhost:5432/dvdrental',
       simpleCollections: 'omit',
       appendPlugins: [pgSimplifyInflector],
     }
@@ -29,4 +30,6 @@ app.use(
 
 app.listen(serverPort)
 
-console.log(`Listening to ${serverPort}`)
+console.log(`PostGraphile listening to\thttp://localhost:${serverPort}`)
+console.log(`GraphiQL served at\t\thttp://localhost:${serverPort}/graphiql`)
+console.log(`Web client served at\t\thttp://localhost:1234`)
