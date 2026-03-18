@@ -1,0 +1,14 @@
+services:
+  dvd-db:
+    image: postgres:16.8-alpine
+    container_name: dvd-db
+    environment:
+      - POSTGRES_USER=dvd
+      - POSTGRES_DB=dvdrental
+      - POSTGRES_PASSWORD=rental
+    volumes:
+      - dvd-db-volume:/var/lib/postgresql/data
+    ports:
+      - "5555:5432"
+volumes:
+  dvd-db-volume:

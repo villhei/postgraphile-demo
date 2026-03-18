@@ -1,32 +1,31 @@
 # postgraphile-demo
 
-## Prequisites
- - Postgres database
- - User `postgres` (unless you edit scripts/initdb.sh) with empty pass
- - Database `dvdrental` created in the postgres using 
-    - `createdb dvdrental`
-  
-## Setup PostgreSQL
-```bash
-sudo -u postgres createuser <youruser>
-sudo -u postgres psql postgres
-```
+## Prerequisites
 
-Execute
+- Docker (for running the database via Docker Compose)
+- `pg_restore` (part of the PostgreSQL client tools)
+- Node.js / Yarn
 
-```sql
-CREATE ROLE dvd LOGIN PASSWORD 'rental';
-CREATE DATABASE dvdrental WITH OWNER = dvd;
-quit
-```
+## Setup
 
-Test the connection
-```bash
-psql -h localhost -d dvdrental -U dvd
-```
+1. **Start the database**
 
-## Run the demo
+   ```bash
+   docker compose up -d
+   ```
 
-1. Clone the repo
-2. Init the db by running `scripts/initdb.sh`
-2. Run `yarn start`
+   This starts a PostgreSQL 16 container (`dvd-db`) on port `5555` with user `dvd`, password `rental`, and database `dvdrental`.
+
+2. **Load the data**
+
+   ```bash
+   scripts/initdb.sh
+   ```
+
+   This restores the `dvdrental` dataset into the running database.
+
+3. **Start the server**
+
+   ```bash
+   yarn start
+   ```

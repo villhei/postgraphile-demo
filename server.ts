@@ -12,7 +12,7 @@ app.use(cors())
 app.use(
   postgraphile(
     process.env.DATABASE_URL ||
-    "postgres://dvd:rental@localhost:5432/dvdrental",
+    "postgres://dvd:rental@localhost:5555/dvdrental",
     "public",
     {
       watchPg: true,
@@ -21,7 +21,7 @@ app.use(
       exportGqlSchemaPath: "src/graphql/schema.graphql",
       setofFunctionsContainNulls: false,
       pgDefaultRole: "default_role",
-      ownerConnectionString: 'postgres://postgres@localhost:5432/dvdrental',
+      ownerConnectionString: 'postgres://dvd:rental@localhost:5555/dvdrental',
       simpleCollections: 'omit',
       appendPlugins: [pgSimplifyInflector],
     }
