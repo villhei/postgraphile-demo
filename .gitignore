@@ -3,3 +3,5 @@ node_modules
 .yarn
 .parcel-cache
 dist
+.env
+db.env
